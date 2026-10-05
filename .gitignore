@@ -1,0 +1,17 @@
+# Archivos generados al compilar
+target/
+
+# Configuración local de IntelliJ
+.idea/
+*.iml
+
+# Archivos del sistema macOS
+.DS_Store
+
+# Variables de entorno locales
+.env
+.env.*
+!.env.example
+
+# Archivos de registro
+*.log
