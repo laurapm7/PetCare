@@ -2,9 +2,9 @@ package com.laura.petcare.controller;
 
 import com.laura.petcare.entity.Pet;
 import com.laura.petcare.service.PetService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +21,13 @@ public class PetController {
     @GetMapping
     public List<Pet> findAll() {
         return petService.findAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<Pet> create(@RequestBody Pet pet) {
+        Pet savedPet = petService.create(pet);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedPet);
     }
 
 }
