@@ -35,4 +35,10 @@ public class PetController {
         return ResponseEntity.of(petService.findById(id));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Pet> update(@PathVariable("id") Long id, @RequestBody Pet pet) {
+        Pet updatedPet= petService.update(id,pet);
+        return ResponseEntity.ok(updatedPet);
+    }
+
 }
