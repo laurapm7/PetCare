@@ -39,4 +39,10 @@ public class PetService {
         return petRepository.save(existingPet);
     }
 
+    @Transactional
+    public void delete(Long id) {
+        Pet existingPet = petRepository.findById(id).orElseThrow(()-> new PetNotFoundException(id));
+        petRepository.delete(existingPet);
+    }
+
 }
