@@ -5,6 +5,7 @@ import com.laura.petcare.repository.PetRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PetService {
@@ -13,6 +14,10 @@ public class PetService {
 
     public PetService(PetRepository petRepository) {
         this.petRepository = petRepository;
+    }
+
+    public Optional<Pet> findById(Long id) {
+        return petRepository.findById(id);
     }
 
     public List<Pet> findAll() {

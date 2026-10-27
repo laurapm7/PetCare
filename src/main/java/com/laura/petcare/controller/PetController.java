@@ -30,4 +30,9 @@ public class PetController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPet);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Pet> findById(@PathVariable("id") Long id) {
+        return ResponseEntity.of(petService.findById(id));
+    }
+
 }
